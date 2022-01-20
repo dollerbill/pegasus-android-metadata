@@ -63,11 +63,11 @@ for device_name in ${selected_device_names[@]};
 	 message=$device_name
 	  system="${message//'"'/}"            
 	 #ls ~/storage/external-1/$system
-	 mkdir ~/storage/external-1/$system/media &> /dev/null
-	 mkdir ~/storage/external-1/$system/media/screenshot &> /dev/null
-	 mkdir ~/storage/external-1/$system/media/box2dfront &> /dev/null
-	 mkdir ~/storage/external-1/$system/media/wheel &> /dev/null
-	 for entry in ~/storage/external-1/$system/*
+	 mkdir ~/storage/shared/Gaming/$system/media &> /dev/null
+	 mkdir ~/storage/shared/Gaming/$system/media/screenshot &> /dev/null
+	 mkdir ~/storage/shared/Gaming/$system/media/box2dfront &> /dev/null
+	 mkdir ~/storage/shared/Gaming/$system/media/wheel &> /dev/null
+	 for entry in ~/storage/shared/Gaming/$system/*
 	 do
 	 
 	 #	echo $entry;
@@ -221,28 +221,28 @@ for device_name in ${selected_device_names[@]};
 	 		startcapture=false
  		fi
 		#Directory Validation
-		DIR=~/storage/external-1/$system/$capture
+		DIR=~/storage/shared/Gaming/$system/$capture
 		if [ -d "$DIR" ]; then
 			startcapture=false
 		fi
 		
 		if [ $startcapture == true ]; then
 							
-			FILE=~/storage/external-1/$system/media/screenshot/$capture
+			FILE=~/storage/shared/Gaming/$system/media/screenshot/$capture
 			if [ -f "$FILE" ]; then
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 			else 
 				echo -ne "Game not found: $capture screenshot..."
-				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/external-1/$system/media/screenshot/
+				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Snaps/$capture" -P ~/storage/shared/Gaming/$system/media/screenshot/
 				echo -e ""
 			fi
 			
-			FILE=~/storage/external-1/$system/media/box2dfront/$capture
+			FILE=~/storage/shared/Gaming/$system/media/box2dfront/$capture
 			if [ -f "$FILE" ]; then
 				echo -e "Image already exists, ${YELLOW}ignoring${NONE}" &> /dev/null
 			else 
 				echo -ne "Game not found: $capture box2dfront..."
-				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/external-1/$system/media/box2dfront/
+				wget  -q --show-progress "http://thumbnails.libretro.com/$remoteSystem/Named_Boxarts/$capture" -P ~/storage/shared/Gaming/$system/media/box2dfront/
 				echo -e ""
 			fi
 
