@@ -24,9 +24,14 @@ hasRetroArch=false
 
 #Retroarch?
 FOLDER=~/storage/shared/Android/data/com.retroarch
+FOLDER64=~/storage/shared/Android/data/com.retroarch.aarch64
 if [ -d "$FOLDER" ]; then
 	hasRetroArch=true
+elif [ -d "$FOLDER64" ]; then
+	hasRetroArch=true
+    FOLDER=$FOLDER64
 fi
+
 clear
 echo -ne "Installing components, please be patient..."
 rm ~/storage/shared/pegasus_installer_log.log &>> /dev/null
